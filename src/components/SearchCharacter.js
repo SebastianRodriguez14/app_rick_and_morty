@@ -11,6 +11,19 @@ function SearchCharacter() {
         getAllCharacters();
     }, [])
 
+    function capitalize(text){
+
+        const words = text.split(" ");
+        
+        for (let word of words ){
+            // console.log(words[word]);
+            let newWord = word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase();
+            words[words.indexOf(word)] = newWord;
+        }
+        return words.join(" ");
+
+    }
+
     function findCharacters(e){
         setCharacters([]);
         const tempChr = []
@@ -22,7 +35,7 @@ function SearchCharacter() {
         
         for(let character of allCharacters){
 
-            if (character.name.startsWith(text)){
+            if (character.name.startsWith(capitalize(text))){
                 tempChr.push(character);
             }
 
