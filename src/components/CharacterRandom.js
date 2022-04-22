@@ -26,7 +26,7 @@ function CharacterRandom() {
 
     if (character === null) return null;
 
-    return <>
+    return <> 
         <div className='contenedor'>
 
             <div className='title'>
