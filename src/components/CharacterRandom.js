@@ -37,7 +37,7 @@ function CharacterRandom() {
 
             <Card data = {character}/>
 
-
+ 
         </div>
     </>
 }
