@@ -8,7 +8,7 @@
 }
 
 .button{
-    background-color: #1667DB;
+    
     padding: 15px 35px;
     font-size: 20px;
     color: white;
@@ -18,14 +18,45 @@
     transition: background-color 0.3s ease;
 }
 
-.button:hover{
+.button-blue{
+    background-color: #1667DB;
+}
+
+.button-blue:hover{
     cursor: pointer;
     background-color: #165bbb;
 }
-.button:active{
+.button-blue:active{
     cursor: pointer;
     background-color: #1951a0;
 }
+
+.button-orange{
+    background-color: #f79f1b;
+}
+
+.button-orange:hover{
+    cursor: pointer;
+    background-color: #e6951c;
+}
+.button-orange:active{
+    cursor: pointer;
+    background-color: #c98319;
+}
+
+.button-red{
+    background-color: #e01a1a;
+}
+
+.button-red:hover{
+    cursor: pointer;
+    background-color: #c71717;
+}
+.button-red:active{
+    cursor: pointer;
+    background-color: #ad1717;
+}
+
 
 .textInput{
     border: 2px #1667DB solid;
@@ -48,9 +79,12 @@
     width: 400px;
     border: 1px white solid;
     box-shadow: 0px 0px 5px #666;
+    transition: box-shadow 0.5s ease;
     border-radius: 5px;
     padding: 15px;
 }
+
+
 
 .bigCard .image{
     width: 100%;
@@ -82,6 +116,17 @@
     justify-content: space-around;
 
 }
+
+.options{
+    display: flex;
+    justify-content: center;
+
+}
+
+.options .button{
+    margin: 8px;
+}
+
 
 
 

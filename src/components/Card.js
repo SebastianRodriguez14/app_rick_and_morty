@@ -2,16 +2,17 @@ import React from 'react';
 
 function Card(props) {
 
+
     return <>
-        <div className='bigCard'>
+        <div className="bigCard">
 
             <div>
                 <img src={props.data.image} className="image" />
             </div>
 
             <div className='title'>
-                <span>{props.data.name}</span>
-
+                <span>{props.type === "game" ? "¿What is my name?" :props.data.name}</span>
+                {/* <span>{props.data.name}</span> */}
             </div>
 
             <div className='content'>

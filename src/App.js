@@ -5,6 +5,8 @@ import NavBarOptions from './components/NavBarOptions';
 import SearchCharacter from './components/SearchCharacter';
 import PrincipalPage from './components/PrincipalPage';
 import "./css/App.css";
+import "./css/StyleContent.css"
+import "./css/StyleModal.css"
 import GuessCharacter from './components/GuessCharacter';
 
 function App() {

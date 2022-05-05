@@ -1,5 +1,4 @@
 import React from 'react';
-import "../css/StyleContent.css"
 
 function PrincipalPage(){
 

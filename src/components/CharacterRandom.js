@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import "../css/StyleContent.css"
 import Card from './Card';
 
 
@@ -33,7 +32,7 @@ function CharacterRandom() {
                 <span>Character Random</span>
             </div>
             <br />
-            <input type="button" id="random" name="random" className='button' value="Random" onClick={getCharacter} />
+            <input type="button" id="random" name="random" className='button button-blue' value="Random" onClick={getCharacter} />
 
             <Card data = {character}/>
 

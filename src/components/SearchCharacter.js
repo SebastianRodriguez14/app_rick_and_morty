@@ -7,6 +7,8 @@ function SearchCharacter() {
     
     const [allCharacters, setAllCharacters] = useState([]);
 
+    const [tempCharacters, setTempCharacters] = useState([]);
+
     useEffect(() => {
         getAllCharacters();
     }, [])
@@ -23,25 +25,6 @@ function SearchCharacter() {
         return words.join(" ");
 
     }
-
-    function findCharacters(e){
-        setCharacters([]);
-        const tempChr = []
-        let text = e.target.value;
-        
-        if (text === ""){
-            return;
-        }
-        
-        for(let character of allCharacters){
-
-            if (character.name.startsWith(capitalize(text))){
-                tempChr.push(character);
-            }
-
-        }
-        setCharacters(tempChr);
-    } 
 
     async function getAllCharacters(){
 
@@ -60,7 +43,55 @@ function SearchCharacter() {
 
     }
 
-    
+    function findCharacters(e){
+        setCharacters([]);
+        setTempCharacters([]);
+        // console.log(tempCharacters);
+        const tempChr = []
+        let text = e.target.value;
+        
+        if (text === ""){
+            return;
+        }
+        
+        for(let character of allCharacters){
+
+            if (character.name.startsWith(capitalize(text))){
+                tempChr.push(character);
+            }
+
+        }
+        setCharacters(tempChr);
+        findGroupCharacters(null, tempChr, []);
+    } 
+
+    function findGroupCharacters(e, characters, groupCharacters = tempCharacters){
+        
+        //Id del último personaje mostrado dentro de los personajes filtrados por lo escrito en el input
+        let lastIndexId;
+        if (groupCharacters.length > 0){
+            lastIndexId = groupCharacters.length;
+            // console.log(characters);
+            // console.log(lastIndexId);
+            // console.log(tempCharacters[tempCharacters.length-1]);
+        } else{
+            lastIndexId = 0;
+        }
+        const tempChr = [];
+        for (let i = lastIndexId; i <= (lastIndexId+7 > characters.length-1 ? characters.length-1 : lastIndexId+7); i++){
+            if (characters[i] === undefined) break;
+            tempChr.push(characters[i]);
+
+        }
+        
+        setTempCharacters([...groupCharacters, ...tempChr]);
+
+        // console.log([...tempCharacters, ...tempChr]);
+    }
+
+
+
+    // console.log("Oeq");
     
     return <>
         <div className='contenedor'>
@@ -73,11 +104,21 @@ function SearchCharacter() {
             
             <div className='contentCards'>
                 {
-                    characters.map(chr => <Card data = {chr}/>)
+                    tempCharacters.map(chr => <Card data = {chr}/>)
                 }
             </div>
 
+            <br/>
             
+            {
+                tempCharacters.length === characters.length ?
+                null :
+                <input type="button" id="random" name="random" className='button' value="Cargar Más" onClick={e => findGroupCharacters(e, characters)}/>
+            }
+
+            
+
+            <br/>
 
         </div>
     </>
