@@ -14,7 +14,7 @@ function GuessCharacter() {
 
     useEffect(() => {
         getCharacter();
-    }, [])
+    }, []) 
 
 
 
